@@ -1,3 +1,6 @@
-docs/ @nareshwart @lerndevops90
+#docs/ @nareshwart @lerndevops90
 
 *.js  @leaddevops @lerndevops90
+
+# Assign 'user1' to all issues
+* @nareshwart
