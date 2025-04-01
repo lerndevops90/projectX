@@ -1,0 +1,13 @@
+name: Enforce CODEOWNERS Approval
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  require-approval:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure PR has required approvals
+        uses: xt0rted/pull-request-review-check@v1
+        with:
+          required-approvals: 1
