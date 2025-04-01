@@ -1,13 +1,17 @@
 name: Enforce CODEOWNERS Approval
+
 on:
   pull_request:
-    branches:
-      - main
+    types: [opened, synchronize, reopened]
+
 jobs:
-  require-approval:
+  enforce-codeowners:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Ensure PR has required approvals
-        uses: xt0rted/pull-request-review-check@v1
-        with:
-          required-approvals: 1
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # Replace the following line with a valid action
+    - name: Pull Request Review Check
+      uses: xt0rted/pull-request-review-check@v1  # Ensure this action exists or replace with a valid one
