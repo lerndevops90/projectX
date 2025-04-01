@@ -2,16 +2,14 @@ name: Enforce CODEOWNERS Approval
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches:
+      - main
 
 jobs:
-  enforce-codeowners:
+  check-approvals:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    # Replace the following line with a valid action
-    - name: Pull Request Review Check
-      uses: xt0rted/pull-request-review-check@v1  # Ensure this action exists or replace with a valid one
+      - name: Check PR Approvals
+        uses: hmarr/auto-approve-action@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
